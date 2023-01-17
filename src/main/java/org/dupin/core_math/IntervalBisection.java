@@ -4,8 +4,6 @@ public abstract class IntervalBisection {
 
     protected double precisionValue;
     protected int iterations;
-    protected double lowerBound;
-    protected double upperBound;
 
     protected IntervalBisection() {
         iterations = 20;
@@ -15,14 +13,6 @@ public abstract class IntervalBisection {
     protected IntervalBisection(int iterations, double precisionValue) {
         this.iterations = iterations;
         this.precisionValue = precisionValue;
-    }
-
-    public int getIterations() {
-        return iterations;
-    }
-
-    public double getPrecisionValue() {
-        return precisionValue;
     }
 
     public double evaluateRoot(double lower, double higher) {

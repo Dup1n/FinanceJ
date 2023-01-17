@@ -1,6 +1,5 @@
 package org.dupin.yield_cal;
 
-import org.dupin.Main;
 import org.dupin.core_math.IntervalBisection;
 
 import java.util.List;
