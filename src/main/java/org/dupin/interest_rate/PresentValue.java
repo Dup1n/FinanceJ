@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class PresentValue {
 
-    private double divide(double r, double n) {
+    private static double divide(double r, double n) {
         return Math.pow(1 + r, n);
     }
 
@@ -16,11 +16,11 @@ public class PresentValue {
      * @param n = number of periods
      * @return = Present Value Factor
      */
-    public double presentValueFactor(double r, double n) {
+    public static double presentValueFactor(double r, double n) {
         return 1 / divide(r, n);
     }
 
-    public double presentValue(double fV, double r, double n) {
+    public static double presentValue(double fV, double r, double n) {
         double pV = 0.0;
 
         for (int t = 1; t <= n; t++) {
@@ -30,7 +30,7 @@ public class PresentValue {
         return pV;
     }
 
-    public double presentValue(List<Double> fV, double r) {
+    public static double presentValue(List<Double> fV, double r) {
         double pV = 0.0;
 
         for (int t = 1; t <= fV.size(); t++) {
@@ -40,26 +40,26 @@ public class PresentValue {
         return pV;
     }
 
-    public double paymentsEqualAmount(double r, double n) {
+    public static double paymentsEqualAmount(double r, double n) {
         return (1 - (1 / divide(r, n))) / r;
     }
 
-    public double paymentsEqualAdvance(double r, double n) {
+    public static double paymentsEqualAdvance(double r, double n) {
         return paymentsEqualAmount(r, n) * (1 + r);
     }
 
-    public double perpetuity(double cash, double rate) {
+    public static double perpetuity(double cash, double rate) {
         return cash / rate;
     }
 
-    public double perpetuity(double cash, double rate, double growth) {
+    public static double perpetuity(double cash, double rate, double growth) {
         if (rate <= growth) {
             return perpetuity(cash, rate);
         }
         return cash / (rate - growth);
     }
 
-    public double increasingAnnuality(double rate, double periods) {
+    public static double increasingAnnuality(double rate, double periods) {
         return (paymentsEqualAdvance(rate, periods) - periods * Math.pow(1 / (1 + rate), periods)) / rate;
     }
 }
